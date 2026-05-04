@@ -20,8 +20,8 @@ const pharmacies = [
   { name: "Pharmacie Millénium",       city: "Cotonou", area: "Cotonou Centre", phone: "+229 21 31 99 60", day: "Samedi" },
 
   /* ——— PORTO-NOVO (6 pharmacies) ——— */
-  { name: "Pharmacie de l'Ouémé",      city: "Porto-Novo", area: "Centre-ville",  phone: "+229 20 21 34 10", day: "Lundi" },
-  { name: "Pharmacie Sainte-Anne",     city: "Porto-Novo", area: "Houinmè",       phone: "+229 20 21 56 42", day: "Mardi" },
+  { name: "Pharmacie Adjibadé",      city: "Porto-Novo", area: "Centre-ville",  phone: "+229 20 21 34 10", day: "Lundi" },
+  { name: "Pharmacie Les Palmiers",     city: "Porto-Novo", area: "Houinmè",       phone: "+229 20 21 56 42", day: "Mardi" },
   { name: "Pharmacie Saint-Gilles",    city: "Porto-Novo", area: "Tokpota",       phone: "+229 20 22 30 77", day: "Mercredi" },
   { name: "Pharmacie de la Lagune",    city: "Porto-Novo", area: "Agbokou",       phone: "+229 20 23 55 20", day: "Jeudi" },
   { name: "Pharmacie Confiance",       city: "Porto-Novo", area: "Djègan-Kpèvi", phone: "+229 20 21 60 90", day: "Vendredi" },
