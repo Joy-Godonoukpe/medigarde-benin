@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Médigarde Bénin – Pharmacies de garde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">
+        <img src="./assets/img/logo_hero.png" alt="Médigarde Logo" class="logo__img">
+        <span class="logo__text">Médigarde <span class="logo__accent">Bénin</span></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#accueil" class="nav__link active">Accueil</a>
+        <a href="#pharmacies-liste" class="nav__link">Pharmacies</a>
+        <a href="#comment-utiliser" class="nav__link">Guide</a>
+        <a href="#a-propos" class="nav__link">À propos</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO / SEARCH ===== -->
+  <section class="hero" id="accueil">
+    <!-- Pour changer l'image de fond : remplacez "assets/images/hero-bg.jpg" par votre propre image -->
+    <div class="hero__bg-image" style="background-image: url('./assets/img/herobg.png');"></div>
+    <div class="hero__bg-pattern"></div>
+    <div class="container hero__inner">
+    
+      <h1 class="hero__title reveal">
+        Trouvez une pharmacie de garde
+        <span class="hero__title-accent-wrapper">
+          <span class="hero__title-accent active" data-word="rapidement">rapidement</span>
+          <span class="hero__title-accent" data-word="facilement">facilement</span>
+          <span class="hero__title-accent" data-word="en un clic">en un clic</span>
+        </span>
+      </h1>
+      <p class="hero__subtitle reveal">
+        Localisez en quelques secondes les pharmacies ouvertes de nuit et de week-end
+        dans les principales villes du Bénin.
+      </p>
+
+      <!-- SEARCH MODULE -->
+      <div class="search-card reveal">
+        <div class="search-card__header">
+          <i class="fa-solid fa-magnifying-glass-location"></i>
+          <span>Rechercher une pharmacie</span>
+        </div>
+        <div class="search-card__body">
+          <div class="search-field">
+            <label for="search-city"><i class="fa-solid fa-location-dot"></i> Ville</label>
+            <select id="search-city" class="select">
+              <option value="">Toutes les villes</option>
+              <option value="Cotonou">Cotonou</option>
+              <option value="Porto-Novo">Porto-Novo</option>
+              <option value="Parakou">Parakou</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="search-day"><i class="fa-regular fa-calendar-days"></i> Jour</label>
+            <select id="search-day" class="select">
+              <option value="">Tous les jours</option>
+              <option value="Lundi">Lundi</option>
+              <option value="Mardi">Mardi</option>
+              <option value="Mercredi">Mercredi</option>
+              <option value="Jeudi">Jeudi</option>
+              <option value="Vendredi">Vendredi</option>
+              <option value="Samedi">Samedi</option>
+              <option value="Dimanche">Dimanche</option>
+            </select>
+          </div>
+          <button class="btn-search" id="btn-search">
+            <i class="fa-solid fa-search"></i>
+            Rechercher
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="hero__wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#F5F7F6"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== RESULTS SECTION ===== -->
+  <section class="results-section" id="results-section" hidden>
+    <div class="container">
+      <div class="section-heading">
+        <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Résultats de recherche</h2>
+        <button class="btn-reset" id="btn-reset"><i class="fa-solid fa-xmark"></i> Effacer</button>
+      </div>
+      <p class="results-count" id="results-count"></p>
+      <div class="cards-grid" id="results-grid"></div>
+      <div class="empty-state" id="results-empty" hidden>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <p>Aucune pharmacie trouvée pour ces critères.<br />Essayez une autre ville ou un autre jour.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHARMACIES LISTE ===== -->
+  <section class="pharmacies-section" id="pharmacies-liste">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2 class="section-title"><i class="fa-solid fa-pills"></i> Pharmacies de garde</h2>
+          <p class="section-sub">Filtrez par ville pour afficher les pharmacies disponibles</p>
+        </div>
+      </div>
+
+      <!-- Filtres -->
+      <div class="filters-bar">
+        <div class="filter-group">
+          <label for="filter-city"><i class="fa-solid fa-city"></i> Ville</label>
+          <div class="select-wrap">
+            <select id="filter-city" class="select">
+              <option value="">Toutes les villes</option>
+              <option value="Cotonou">Cotonou</option>
+              <option value="Porto-Novo" selected>Porto-Novo</option>
+              <option value="Parakou">Parakou</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-group">
+          <label for="filter-day"><i class="fa-regular fa-calendar"></i> Jour</label>
+          <div class="select-wrap">
+            <select id="filter-day" class="select">
+              <option value="">Tous les jours</option>
+              <option value="Lundi">Lundi</option>
+              <option value="Mardi">Mardi</option>
+              <option value="Mercredi">Mercredi</option>
+              <option value="Jeudi">Jeudi</option>
+              <option value="Vendredi">Vendredi</option>
+              <option value="Samedi">Samedi</option>
+              <option value="Dimanche">Dimanche</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-count-badge" id="filter-count-badge"></div>
+      </div>
+
+      <div class="cards-grid" id="pharmacies-grid"></div>
+      <div class="empty-state" id="pharmacies-empty" hidden>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <p>Aucune pharmacie ne correspond à ces filtres.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMMENT UTILISER ===== -->
+  <section class="how-section" id="comment-utiliser">
+    <div class="container">
+      <div class="how__header reveal">
+        <span class="section-label"><i class="fa-solid fa-book-open"></i> Mode d'emploi</span>
+        <h2 class="section-title-lg">Comment utiliser Médigarde ?</h2>
+        <p class="section-intro">Trouver une pharmacie de garde ne prend que quelques secondes. Suivez ces étapes simples.</p>
+      </div>
+      <div class="how__steps">
+        <div class="how-step reveal">
+          <div class="how-step__number">01</div>
+          <div class="how-step__icon"><i class="fa-solid fa-location-dot"></i></div>
+          <h3 class="how-step__title">Choisissez votre ville</h3>
+          <p class="how-step__text">Sélectionnez votre ville parmi Cotonou, Porto-Novo ou Parakou dans le menu déroulant du module de recherche.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-step__number">02</div>
+          <div class="how-step__icon"><i class="fa-regular fa-calendar-days"></i></div>
+          <h3 class="how-step__title">Sélectionnez le jour</h3>
+          <p class="how-step__text">Indiquez le jour pour lequel vous cherchez une pharmacie de garde afin d'affiner les résultats.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-step__number">03</div>
+          <div class="how-step__icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h3 class="how-step__title">Lancez la recherche</h3>
+          <p class="how-step__text">Cliquez sur &laquo; Rechercher &raquo;. La liste des pharmacies correspondantes s'affiche instantanément.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-step__number">04</div>
+          <div class="how-step__icon"><i class="fa-solid fa-phone-volume"></i></div>
+          <h3 class="how-step__title">Appelez directement</h3>
+          <p class="how-step__text">Cliquez sur &laquo; Appeler &raquo; depuis la carte de la pharmacie pour lancer l'appel en un seul clic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POURQUOI MÉDIGARDE ===== -->
+  <section class="why-section" id="pourquoi-medigarde">
+    <div class="container">
+      <div class="why__header reveal">
+        <span class="section-label"><i class="fa-solid fa-star"></i> Nos avantages</span>
+        <h2 class="section-title-lg">Pourquoi utiliser Médigarde ?</h2>
+        <p class="section-intro">Une solution pensée pour les situations urgentes, conçue avec soin pour les habitants du Bénin.</p>
+      </div>
+      <div class="why__grid">
+        <div class="why-card reveal">
+          <div class="why-card__icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3 class="why-card__title">Rapidité maximale</h3>
+          <p class="why-card__text">Accédez aux informations en moins de 5 secondes, sans inscription, sans téléchargement. Idéal en situation d'urgence.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h3 class="why-card__title">100 % mobile</h3>
+          <p class="why-card__text">Interface conçue pour les smartphones. Fonctionne parfaitement depuis votre téléphone, même avec une connexion limitée.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon"><i class="fa-solid fa-database"></i></div>
+          <h3 class="why-card__title">Données fiables</h3>
+          <p class="why-card__text">Les pharmacies listées sont vérifiées et mises à jour régulièrement pour garantir des informations exactes et à jour.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon"><i class="fa-solid fa-phone"></i></div>
+          <h3 class="why-card__title">Appel en un clic</h3>
+          <p class="why-card__text">Le bouton d'appel intégré vous connecte directement à la pharmacie sans avoir à mémoriser ou copier de numéro.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon"><i class="fa-solid fa-lock-open"></i></div>
+          <h3 class="why-card__title">Gratuit et ouvert</h3>
+          <p class="why-card__text">Médigarde est entièrement gratuit. Aucun abonnement, aucune publicité intrusive. Un service citoyen, pour tous.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon"><i class="fa-solid fa-map-location-dot"></i></div>
+          <h3 class="why-card__title">3 villes couvertes</h3>
+          <p class="why-card__text">Cotonou, Porto-Novo et Parakou sont déjà couvertes. D'autres villes du Bénin seront intégrées prochainement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== À PROPOS ===== -->
+  <section class="about-section" id="a-propos">
+    <div class="container about__inner">
+      <div class="about__visual">
+        <img src="./assets/img/logo.png" alt="Médigarde Logo" class="about__logo">
+      </div>
+      <div class="about__content reveal">
+        <span class="about__label">À propos de Médigarde</span>
+        <h2 class="about__title">Une urgence médicale ne devrait pas être un parcours du combattant.</h2>
+        <p class="about__text">
+          Médigarde Bénin est une plateforme citoyenne conçue pour simplifier l'accès aux pharmacies de garde
+          dans les villes du Bénin. En quelques secondes, trouvez la pharmacie la plus adaptée à votre situation,
+          quel que soit le jour ou l'heure.
+        </p>
+        <ul class="about__features">
+          <li><i class="fa-solid fa-check-circle"></i> Données mises à jour régulièrement</li>
+          <li><i class="fa-solid fa-check-circle"></i> Appel direct depuis l'application</li>
+          <li><i class="fa-solid fa-check-circle"></i> Couvre Cotonou, Porto-Novo et Parakou</li>
+          <li><i class="fa-solid fa-check-circle"></i> Gratuit et sans inscription</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="./assets/img/logo_hero.png" alt="Médigarde Logo" class="footer__logo">
+        <span class="footer__name">Médigarde Bénin</span>
+      </div>
+      <p class="footer__copy">&copy; 2025 Médigarde Bénin. Tous droits réservés.</p>
+      <p class="footer__credits">
+        Conçu par <strong>Joy GODONOUKPE</strong> &amp; <strong>Farhane SANNI</strong>
+      </p>
+    </div>
+  </footer>
+
+  <script src="./assets/js/scripts.js"></script>
+</body>
+</html>
