@@ -10,31 +10,31 @@
    ==================================================== */
 const pharmacies = [
   /* ——— COTONOU (8 pharmacies) ——— */
-  { name: "Pharmacie Sainte-Cécile",   city: "Cotonou", area: "Akpakpa",        phone: "+229 21 33 10 05", day: "Lundi" },
-  { name: "Pharmacie Centrale",        city: "Cotonou", area: "Ganhi",          phone: "+229 21 31 05 90", day: "Mardi" },
-  { name: "Pharmacie des Nations",     city: "Cotonou", area: "Haie Vive",      phone: "+229 21 30 42 17", day: "Mercredi" },
-  { name: "Pharmacie Liberté",         city: "Cotonou", area: "Gbèdjromèdji",   phone: "+229 21 32 54 00", day: "Jeudi" },
-  { name: "Pharmacie de la Paix",      city: "Cotonou", area: "Akpakpa",        phone: "+229 21 33 92 50", day: "Vendredi" },
-  { name: "Pharmacie Godomey",         city: "Cotonou", area: "Godomey",        phone: "+229 21 35 44 20", day: "Samedi" },
-  { name: "Pharmacie Sainte-Marie",    city: "Cotonou", area: "Gbèdjromèdji",   phone: "+229 21 32 88 07", day: "Dimanche" },
-  { name: "Pharmacie Millénium",       city: "Cotonou", area: "Cotonou Centre", phone: "+229 21 31 99 60", day: "Samedi" },
+  { name: "Pharmacie Camps Guezo",          city: "Cotonou", area: "Akpakpa",                phone: "+229 01 21 33 10 05", day: "Lundi" },
+  { name: "Pharmacie Jonquet",              city: "Cotonou", area: "Dota",                   phone: "+229 01 21 31 05 90", day: "Mardi" },
+  { name: "Pharmacie La Béninoise",         city: "Cotonou", area: "Carrefour sobebra",      phone: "+229 01 21 30 42 17", day: "Mercredi" },
+  { name: "Pharmacie Cristal Santé",        city: "Cotonou", area: "Cotonou",                phone: "+229 01 21 32 54 00", day: "Jeudi" },
+  { name: "Pharmacie Sacré Coeur",          city: "Cotonou", area: "rue 1451",               phone: "+229 01 21 33 92 50", day: "Vendredi" },
+  { name: "Pharmacie Houéyiho",             city: "Cotonou", area: "Godomey",                phone: "+229 01 21 35 44 20", day: "Samedi" },
+  { name: "Pharmacie Sainte-Marie",         city: "Cotonou", area: "Gbèdjromèdji",           phone: "+229 01 21 32 88 07", day: "Dimanche" },
+  { name: "Pharmacie Bien-etre",            city: "Cotonou", area: "rue 1315",               phone: "+229 01 21 31 99 60", day: "Samedi" },
 
   /* ——— PORTO-NOVO (6 pharmacies) ——— */
-  { name: "Pharmacie Adjibadé",      city: "Porto-Novo", area: "Centre-ville",  phone: "+229 20 21 34 10", day: "Lundi" },
-  { name: "Pharmacie Les Palmiers",     city: "Porto-Novo", area: "Houinmè",       phone: "+229 20 21 56 42", day: "Mardi" },
-  { name: "Pharmacie Saint-Gilles",    city: "Porto-Novo", area: "Tokpota",       phone: "+229 20 22 30 77", day: "Mercredi" },
-  { name: "Pharmacie de la Lagune",    city: "Porto-Novo", area: "Agbokou",       phone: "+229 20 23 55 20", day: "Jeudi" },
-  { name: "Pharmacie Confiance",       city: "Porto-Novo", area: "Djègan-Kpèvi", phone: "+229 20 21 60 90", day: "Vendredi" },
-  { name: "Pharmacie Providence",      city: "Porto-Novo", area: "Centre-ville",  phone: "+229 20 21 22 57", day: "Dimanche" },
+  { name: "Pharmacie Adjibadé",           city: "Porto-Novo",        area: "Houinmè",            phone: "+229 01 57 28 08 96 ", day: "Lundi" },
+  { name: "Pharmacie Les Palmiers",       city: "Porto-Novo",        area: "Houinmè",            phone: "+229 01 20 21 56 42", day: "Mardi" },
+  { name: "Pharmacie Kandévié",           city: "Porto-Novo",        area: "Tokpota",            phone: "+229 01 20 22 30 77", day: "Mercredi" },
+  { name: "Pharmacie Boulevard Djassin",  city: "Porto-Novo",        area: "Djassin",            phone: "+229 01 20 23 55 20", day: "Jeudi" },
+  { name: "Pharmacie Djègan Kpèvi",       city: "Porto-Novo",        area: "Djègan-Kpèvi",       phone: "+229 01 63 63 35 35", day: "Vendredi" },
+  { name: "Pharmacie Sainte Marie",       city: "Porto-Novo",        area: "Tokpota",            phone: "+229 01 96 03 51 26", day: "Dimanche" },
 
   /* ——— PARAKOU (7 pharmacies) ——— */
-  { name: "Pharmacie du Nord",          city: "Parakou", area: "Centre Parakou", phone: "+229 23 61 04 50", day: "Lundi" },
-  { name: "Pharmacie Sainte-Thérèse",   city: "Parakou", area: "Zongo",          phone: "+229 23 61 55 09", day: "Mardi" },
-  { name: "Pharmacie Bonne Vie",        city: "Parakou", area: "Alaga",          phone: "+229 23 61 91 38", day: "Mercredi" },
-  { name: "Pharmacie Fraternité",       city: "Parakou", area: "Zongo",          phone: "+229 23 63 44 16", day: "Jeudi" },
-  { name: "Pharmacie du Borgou",        city: "Parakou", area: "Centre Parakou", phone: "+229 23 61 22 83", day: "Vendredi" },
-  { name: "Pharmacie du Peuple",        city: "Parakou", area: "Zongo",          phone: "+229 23 63 82 13", day: "Samedi" },
-  { name: "Pharmacie Alliance",         city: "Parakou", area: "Centre Parakou", phone: "+229 23 61 50 31", day: "Dimanche" },
+  { name: "Pharmacie Ganou",               city: "Parakou", area: "Centre Parakou", phone: "+229 01 23 61 04 50", day: "Lundi" },
+  { name: "Pharmacie Prisca",              city: "Parakou", area: "Zongo",          phone: "+229 01 23 61 55 09", day: "Mardi" },
+  { name: "Pharmacie Banikanni",           city: "Parakou", area: "Alaga",          phone: "+229 01 23 61 91 38", day: "Mercredi" },
+  { name: "Pharmacie De La Gare",          city: "Parakou", area: "Zongo",          phone: "+229 01 23 63 44 16", day: "Jeudi" },
+  { name: "Pharmacie du Borgou",           city: "Parakou", area: "Centre Parakou", phone: "+229 01 23 61 22 83", day: "Vendredi" },
+  { name: "Pharmacie La Grace",            city: "Parakou", area: "Zongo",          phone: "+229 01 23 63 82 13", day: "Samedi" },
+  { name: "Pharmacie Santé Vitale",        city: "Parakou", area: "Centre Parakou", phone: "+229 01 23 61 50 31", day: "Dimanche" },
 ];
 
 
